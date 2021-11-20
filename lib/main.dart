@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Transport Marker',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        //fontFamily: 'Roboto',
+        fontFamily: 'Roboto',
         primarySwatch: Colors.blue,
       ),
       home: const MapScreen(),

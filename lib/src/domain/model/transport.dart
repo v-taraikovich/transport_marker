@@ -1,15 +1,15 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Transport {
-  final LatLng latLng;
-  final String number;
-  final int type;
+  final String routeNumber;
   final String timeDifference;
+  final String registrationNumber;
+  final LatLng? position;
 
   Transport({
-    required this.latLng,
-    required this.number,
-    required this.type,
+    required this.routeNumber,
+    required this.registrationNumber,
     required this.timeDifference,
+    this.position,
   });
 }
