@@ -3,8 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:transport_marker/src/domain/model/transport.dart';
-import 'package:transport_marker/src/domain/transport/transport_marker.dart';
 import 'package:transport_marker/src/domain/utils/marker_generator.dart';
+import 'package:transport_marker/src/screens/widgets.dart/transpot_icon.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -82,41 +82,50 @@ class _MapScreenState extends State<MapScreen> {
   // Transport marker widget
   Widget _transportMarkerWidget(
       String routeNumber, String timeDifference, String registrationNumber) {
+    //return const TransportIcon();
     return Stack(
       children: [
-        Container(
-          height: 25.0,
-          width: 150.0,
-          padding: const EdgeInsets.only(right: 5.0),
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.8),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(50.0),
-              bottomLeft: Radius.circular(50.0),
-              topRight: Radius.circular(20.0),
-              bottomRight: Radius.circular(20.0),
+        Positioned.fill(
+          child: Container(
+            height: 35.0,
+            width: 180.0,
+            padding: const EdgeInsets.only(right: 5.0),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                bottomLeft: Radius.circular(50.0),
+                topRight: Radius.circular(20.0),
+                bottomRight: Radius.circular(20.0),
+              ),
             ),
-          ),
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              '$routeNumber $timeDifference/ $registrationNumber',
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.bold,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                '$routeNumber $timeDifference/ $registrationNumber',
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
         ),
-        Container(
-          height: 25.0,
-          width: 25.0,
-          decoration: const BoxDecoration(
-            color: Colors.lightGreen,
-            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+        //const TransportIcon(),
+        Positioned.fill(
+          child: Container(
+            height: 35.0,
+            width: 35.0,
+            decoration: const BoxDecoration(
+              color: Colors.lightGreen,
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            ),
+            child: Image.asset(
+              'assets/icons/bus_icon.png',
+              color: Colors.white,
+            ),
           ),
-          child: Image.asset('assets/icons/bus.png'),
         ),
       ],
     );
